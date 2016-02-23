@@ -1,5 +1,6 @@
-app.controller('MainController', function($scope){
+app.controller('MainController', function($scope, ShirtService){
     $scope.test = "Hello from main controller!"
+    $scope.shirts = ShirtService.getShirts();
 })
 
 app.controller('OrderController', function($scope){

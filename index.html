@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Custom Shop Orders</title>
+    <title>Custom Shop Control Panel</title>
     <!--Bootstrap-->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <!--Bootstrap Material-->
@@ -13,10 +13,20 @@
 
 
 <body ng-controller="MainController">
-    <div class="well">
-        <h1>Custom Shop Home Base</h1>
+     {{1 + 1}}
+    <div class="panel panel-heading">
+        <h1>Custom Shop Control Panel</h1>
     </div>
-    {{1 + 1}} {{test}}
+    <div class="panel panel-body">
+        <ul>
+            <li ng-repeat="shirt in shirts">
+                <h4>Shirt Color : {{shirt.color}}</h4>
+                <img ng-src="{{shirt.front}}" alt="shirt here" />
+            </li>
+        </ul>
+    </div>
+    <img ng-src="{{shirts[1].front}}" alt="">
+
     <ui-view></ui-view>
     <!--Angular-->
     <script src="bower_components/angular/angular.js"></script>
