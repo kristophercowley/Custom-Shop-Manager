@@ -18,6 +18,8 @@
   "dependencies": {
     "angular": "^1.5.0",
     "bootstrap": "^3.3.6",
-    "firebase": "^2.4.1"
+    "firebase": "^2.4.1",
+    "bootstrap-material-design": "^0.5.8",
+    "angular-ui-router": "ui-router#^0.2.18"
   }
 }
