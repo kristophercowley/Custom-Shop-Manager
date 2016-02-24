@@ -15,6 +15,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: ('OrderController'),
             controllerAs: ('oc')
         })
+        
+        .state('control-panel', {
+            url: ('/control-panel'),
+            templateUrl: ('/templates/control-panel.html'),
+            controller: ('OrderController'),
+            controllerAs: ('oc')
+        })
 })
 
    
