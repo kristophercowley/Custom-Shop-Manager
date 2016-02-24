@@ -11,11 +11,18 @@ app.controller('MainController', function ($scope, ShirtService, DBREF) {
             userOrders: []
         }
     ]
-    
-    $scope.testFB = function(){
-        console.log("testFB working?", $scope.customers[0])
-    db.child('orders').child('branch').update({name:"anonymous", thing: "That Thing"});
+    // gets values from fb
+    $scope.getData = function(){
+       $scope.gotData = db.child('data').get('images');
     }
+    $scope.getData();
+    console.log($scope.gotData)
+    //ends get values from fb
+    
+    // $scope.testFB = function(){
+    //     console.log("testFB working?", $scope.customers[0])
+    // db.child('orders').child('branch').get({name:"anonymous", thing: "That Thing"});
+    // }
     // $scope.orders = [
     //     {
     //         orderNum: 8675309,
