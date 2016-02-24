@@ -1,1 +1,1 @@
-var app = angular.module('orders',[]);
+var app = angular.module('orders',['ui.router']);//,'firebase'

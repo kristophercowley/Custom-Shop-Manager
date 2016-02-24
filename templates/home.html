@@ -1,0 +1,21 @@
+<h2>Home, Home on the range!</h2>
+<div class="panel panel-heading">
+        <h1>Custom Shop Control Panel</h1>
+    </div>
+    <div class="panel panel-body">
+        <ul>
+            <li class="well" ng-repeat="shirt in shirts">
+                <div class="panel panel-heading">
+                    <h3>Customer Name: Johnny Doh, {{}} Order Number: 123456789, {{}} Date: 02/22/16, {{}} Fullfilled: Yes {{}}</h3>
+                </div>
+                <img class="block" height="100px" ng-src="{{shirt.front}}" alt="shirt here" />
+                <div class="orderInfo">
+                    <div>Color: {{shirt.color}}</div>
+                    <div>Size: {{shirt.size}}</div>
+                    <div>Price: {{shirt.cost | currency}}</div>
+                    <div>Quantity: {{shirt.quantity}}</div>
+                    <div>Total: {{shirt.total}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>

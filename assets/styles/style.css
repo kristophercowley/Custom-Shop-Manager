@@ -1,3 +1,10 @@
 h1 {
     text-align: center;
 }
+.orderInfo{
+    text-align: right;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}

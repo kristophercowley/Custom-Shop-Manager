@@ -6,27 +6,27 @@ app.service('ShirtService', function(){
      this.shirts = [
             {
                 color: "Black",
-                front: "img/black-shirt.jpg",
-                back: "img/black-shirt-back.jpg"
+                front: "assets/img/black-shirt.jpg",
+                back: "assets/img/black-shirt-back.jpg"
             },
             {
                 color: "Grey",
-                front: "img/grey-shirt.jpg",
-                back: "img/grey-shirt-back.jpg"
+                front: "assets/img/grey-shirt.jpg",
+                back: "assets/img/grey-shirt-back.jpg"
             },
             {
                 color: "Brown",
-                front: "img/brown-shirt.jpg",
-                back: "img/brown-shirt-back.jpg"
+                front: "assets/img/brown-shirt.jpg",
+                back: "assets/img/brown-shirt-back.jpg"
             },
             {
                 color: "Pink",
-                front: "img/pink-shirt.jpg",
-                back: "img/pink-shirt-back.jpg"
+                front: "assets/img/pink-shirt.jpg",
+                back: "assets/img/pink-shirt-back.jpg"
             }
         ];
         this.getShirts = function(){
-            return this.shirts
+            return this.shirts                                                                                                              
         }
 })
 
