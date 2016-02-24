@@ -14,7 +14,7 @@ app.controller('MainController', function ($scope, ShirtService, DBREF) {
     
     $scope.testFB = function(){
         console.log("testFB working?", $scope.customers[0])
-    db.child('users').child('Test').update($scope.customers[0]);
+    db.child('orders').child('branch').update({name:"anonymous", thing: "That Thing"});
     }
     // $scope.orders = [
     //     {
