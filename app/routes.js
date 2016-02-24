@@ -12,7 +12,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('fullfilled', {
             url: ('/fullfilled'),
             templateUrl: ('/templates/fullfilled.html'),
-            controller: ('OrderController'),
+            controller: ('FullfilledController'),
             controllerAs: ('oc')
         })
         

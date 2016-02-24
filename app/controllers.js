@@ -1,13 +1,21 @@
-app.controller('MainController', function ($scope, ShirtService) {
+/* global Firebase */
+app.controller('MainController', function ($scope, ShirtService, DBREF) {
+    var db = new Firebase(DBREF);
+
     $scope.test = "Hello from main controller!"
     $scope.orders = ShirtService.getOrders();
-    // $scope.customers = [
-    //     {
-    //         userName: "John Doh",
-    //         userEmail: "john@doh.com",
-    //         userOrders: []
-    //     }
-    // ]
+    $scope.customers = [
+        {
+            userName: "John Doh",
+            userEmail: "john@doh.com",
+            userOrders: []
+        }
+    ]
+    
+    $scope.testFB = function(){
+        console.log("testFB working?", $scope.customers[0])
+    db.child('users').child('Test').update($scope.customers[0]);
+    }
     // $scope.orders = [
     //     {
     //         orderNum: 8675309,
