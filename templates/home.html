@@ -1,20 +1,27 @@
 <div class="panel panel-heading">
-        <h1><button id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop</b><button id="fill-btn" ui-sref='fullfilled'>Fullfilled Order Details</button></h1>
-    </div>
-    <div class="panel panel-body">
-        <ul>
-            <li class="well" ng-repeat="shirt in shirts">
-                <div class="panel panel-heading">
-                    <h3>Customer Name: Johnny Doh, {{}} Order Number: 123456789, {{}} Date: 02/22/16, {{}} Fullfilled: Yes {{}}</h3>
-                </div>
-                <img class="block" height="100px" ng-src="{{shirt.front}}" alt="shirt here" />
-                <div class="orderInfo">
-                    <div>Color: {{shirt.color}}</div>
-                    <div>Size: {{shirt.size}}</div>
-                    <div>Price: {{shirt.cost | currency}}</div>
-                    <div>Quantity: {{shirt.quantity}}</div>
-                    <div>Total: {{shirt.total}}</div>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <h1><button id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop</b><button id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
+</div>
+<div class="panel panel-body">
+    <ul>
+        <li class="well" ng-repeat="order in orders">
+            <div class="panel panel-heading">
+                <h3>Customer Name: {{order.userName}}, --- Order Number: {{order.orderNum}}, --- Order Date: {{order.orderDate}} , --- Fullfilled: {{order.fullfilled}}</h3>
+            </div>
+
+            <div class="orderInfo">
+                <div>Name: {{order.userName}}</div>
+                <div>Order Number: {{order.orderNum}}</div>
+                <div>Order Date: {{order.orderDate}}</div>
+                <div>Filled: {{order.fullfilled}}</div>
+                <!--<div>Color: {{order.color}}</div>
+                <div>Size: {{order.size}}</div>
+                <div>Price: {{order.cost | currency}}</div>
+                <div>Quantity: {{order.quantity}}</div>
+                <div>Total: {{order.total}}</div>-->
+            </div>
+            <img class="block" height="100px" ng-src="{{order.front}}" alt="shirt here" />
+            <button class="right">Details</button>
+            <button class="right">Mark as Filled</button>
+        </li>
+    </ul>
+</div>

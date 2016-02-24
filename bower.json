@@ -20,6 +20,7 @@
     "bootstrap": "^3.3.6",
     "firebase": "^2.4.1",
     "bootstrap-material-design": "^0.5.8",
-    "angular-ui-router": "ui-router#^0.2.18"
+    "angular-ui-router": "ui-router#^0.2.18",
+    "angularfire": "^1.1.4"
   }
 }
