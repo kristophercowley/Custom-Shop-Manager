@@ -7,7 +7,8 @@
             <div class="panel panel-heading">
                 <h3>Customer Name: {{order.userName}}, --- Order Number: {{order.orderNum}}, --- Order Date: {{order.orderDate}} , --- Fullfilled: {{order.fullfilled}}</h3>
             </div>
-
+            <input type="text" ng-model="data.text"/>
+            <h1>You said: {{data.text}}</h1>
             <div class="orderInfo">
                 <div>Name: {{order.userName}}</div>
                 <div>Order Number: {{order.orderNum}}</div>

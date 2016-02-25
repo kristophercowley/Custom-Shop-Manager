@@ -1,8 +1,11 @@
 /* global Firebase */
-app.controller('MainController', function ($scope, ShirtService, DBREF) {
+app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth) {
     var db = new Firebase(DBREF);
-
-    $scope.test = "Hello from main controller!"
+    var ref = new Firebase(DBREF)
+    var syncObject = new $firebaseObject(ref);
+    syncObject.$bindTo($scope, 'data');
+    
+    $scope.test = "Hello from main controller!";   
     $scope.orders = ShirtService.getOrders();
     $scope.customers = [
         {
@@ -12,12 +15,7 @@ app.controller('MainController', function ($scope, ShirtService, DBREF) {
         }
     ]
     // gets values from fb
-    $scope.getData = function(){
-       $scope.gotData = db.child('data').get('images');
-    }
-    $scope.getData();
-    console.log($scope.gotData)
-    //ends get values from fb
+   
     
     // $scope.testFB = function(){
     //     console.log("testFB working?", $scope.customers[0])
