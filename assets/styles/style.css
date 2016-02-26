@@ -18,3 +18,6 @@ h1 {
 .right{
     float: right;
 }
+.hover:hover{
+    background-color: beige;
+}
