@@ -1,12 +1,13 @@
 /* global Firebase */
 app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth) {
-    var db = new Firebase(DBREF);
+    // var db = new Firebase(DBREF);
     var ref = new Firebase(DBREF)
-    var syncObject = new $firebaseObject(ref);
-    syncObject.$bindTo($scope, 'data');
-    
+    // var syncObject = new $firebaseObject(ref);
+    // syncObject.$bindTo($scope, 'data');
+    $scope.orders = $firebaseArray(ref);
+    $scope.orders.$add({test: "From Home Base", hope: "This works?"})
     $scope.test = "Hello from main controller!";   
-    $scope.orders = ShirtService.getOrders();
+    // $scope.orders = ShirtService.getOrders();
     $scope.customers = [
         {
             userName: "John Doh",
