@@ -1,39 +1,38 @@
 <div class="panel panel-heading">
-    <h1><button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop</b><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
+    <h1><button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop Strange</b><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
 </div>
+<div class="nav-bar"><a ui-sref="fullfilled">Full</a>
+    <label class="right">Search
+        <input type="text" ng-model="searchText" />
+    </label></div>
 <div class="panel panel-body">
     <!--<div ng-repeat="order in orders">test:{{order.test}}//hope:{{order.hope}} order name: {{order.name}} user:{{order.user}} shirtcolor:{{order.shirtColor}}
         image:{{order.image}}
     </div>-->
 
     <ul>
-        <li class="well" ng-repeat="order in orders">
+        <li class="well" ng-repeat="order in orders | filter: searchText">
             <div class="panel panel-heading">
-                <h3>Customer Name: {{order.name}}, --- Order Number: {{order.orderNum}}, --- Order Date: {{order.orderDate}} , --- Fullfilled: {{order.fullfilled}}</h3>
+                <h3>Customer Name: {{order.name}}, --- Order Number: {{order.saveNum}}, --- Order Date: {{order.date | date:'MM/dd/yyyy' }}</h3>
             </div>
             <!--<input type="text" ng-model="data.text"/>
             <h1>You said: {{data.text}}</h1>-->
-    <div class="orderInfo">
-        <div>order Name: {{order.name}}</div>
-        <!--<div>Order Number: {{order.orderNum}}</div>-->
-        <!--<div>Order Date: {{order.orderDate}}</div>-->
-        <!--<div>Filled: {{order.fullfilled}}</div>-->
-        <div>Shirt Color: {{order.shirtColor}}</div>
-        <div>Image: {{order.image}}</div>
-        <div>Price: {{order.cost | currency}}</div>
-        <!--<div>Quantity: {{order.quantity}}</div>-->
-        <!--<div>Total: {{order.total}}</div>-->
-        </div>
-            <img class="block" height="100px" ng-src="{{order.front}}" alt="shirt here" />
+            <div class="orderInfo">
+                <div>Order Name: {{order.name}}</div>
+                <div>Order Date: {{order.date | date:'MM/dd/yyyy'}}</div>
+                <!--<div>Filled: {{order.fullfilled}}</div>-->
+                <div>Shirt Color: {{order.shirtColor}}</div>
+                <div>Image: {{order.image}}</div>
+                <div>Price: {{order.price | currency}}</div>
+                <div>saveNum: {{order.saveNum}}</div>
+                <!--<div>Order Number: {{order.orderNum}}</div>-->
+            </div>
+            <!--<div>Quantity: {{order.quantity}}</div>-->
+            <!--<div>Total: {{order.total}}</div>-->
+            <img class="block" height="100px" ng-src="{{order.front}}" alt="shirt preview here" />
             <button ng-click="testFB()" class="right">Details</button>
             <button class="right">Mark as Filled</button>
         </li>
     </ul>
 
-    </div>
-    <div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>
-    <menu visible="visible" alignment="left">
-        <menu-item hash="first-page">First Page></menu-item>
-        <menu-item hash="second-page">Second Page></menu-item>
-        <menu-item hash="third-page">Third Page></menu-item>
-    </menu>
+</div>

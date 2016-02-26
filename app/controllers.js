@@ -5,8 +5,8 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
     // var syncObject = new $firebaseObject(ref);
     // syncObject.$bindTo($scope, 'data');
     $scope.orders = $firebaseArray(ref);
-    $scope.orders.$add({test: "From Home Base", hope: "This works?"})
-    $scope.test = "Hello from main controller!";   
+    // $scope.orders.$add({test: "From Home Base", hope: "This works?"})
+    // $scope.test = "Hello from main controller!";   
     // $scope.orders = ShirtService.getOrders();
     $scope.customers = [
         {
@@ -15,7 +15,6 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
             userOrders: []
         }
     ]
-    // gets values from fb
    
     
     // $scope.testFB = function(){
