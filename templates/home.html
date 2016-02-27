@@ -1,37 +1,48 @@
 <div class="panel panel-heading">
     <h1><button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop Strange</b><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
 </div>
-<div class="nav-bar"><a ui-sref="fullfilled">Full</a>
+<div class="panel panel-body">
+    <!--<button ui-sref="fullfilled">Full</button>-->
+    <button ng-click="swap = !swap">Swap</button>
+    <div ng-show="swap">DFGHJHGFDFGHJKHGFD</div>
+    <i class="badge">New Order</i>
     <label class="right">Search
         <input type="text" ng-model="searchText" />
-    </label></div>
+    </label>
+</div>
 <div class="panel panel-body">
     <!--<div ng-repeat="order in orders">test:{{order.test}}//hope:{{order.hope}} order name: {{order.name}} user:{{order.user}} shirtcolor:{{order.shirtColor}}
         image:{{order.image}}
     </div>-->
 
-    <ul>
-        <li class="well" ng-repeat="order in orders | filter: searchText">
+    <ul class="list-group">
+        <li class="well list-item" ng-repeat="order in orders | filter: searchText">
             <div class="panel panel-heading">
-                <h3>Customer Name: {{order.name}}, --- Order Number: {{order.saveNum}}, --- Order Date: {{order.date | date:'MM/dd/yyyy' }}</h3>
+                <h3>Order Num:{{order.saveNum}}, Order Date: {{order.date | date:'MM/dd/yyyy' }}, Time: {{order.date | date:'HH:mm:ss'}}, Customer Name: {{order.user}} <button ng-click="details = !details" class="right">Details</button>
+            <button class="right">Mark as Filled</button> </h3>
             </div>
+            <i class="fa fa-exclamation"> unread</i>
             <!--<input type="text" ng-model="data.text"/>
             <h1>You said: {{data.text}}</h1>-->
-            <div class="orderInfo">
-                <div>Order Name: {{order.name}}</div>
-                <div>Order Date: {{order.date | date:'MM/dd/yyyy'}}</div>
-                <!--<div>Filled: {{order.fullfilled}}</div>-->
-                <div>Shirt Color: {{order.shirtColor}}</div>
-                <div>Image: {{order.image}}</div>
-                <div>Price: {{order.price | currency}}</div>
-                <div>saveNum: {{order.saveNum}}</div>
-                <!--<div>Order Number: {{order.orderNum}}</div>-->
+            <div ng-show="details">
+                <div class="orderInfo">
+                    <div>Order Name: {{order.name}}</div>
+                    <div>Order Date: {{order.date | date:'MM/dd/yyyy'}}</div>
+                    <div>Time: {{order.date | date:'HH:mm:ss'}}</div>
+                    <!--<div>Filled: {{order.fullfilled}}</div>-->
+                    <div>Shirt Color: {{order.shirtColor}}</div>
+                    <div>Image Name: {{order.imageName}}</div>
+                    <!--<div>Image Url: {{order.imageUrl}}</div>-->
+                    <div>Price: {{order.price | currency}}</div>
+                    <div>saveNum: {{order.saveNum}}</div>
+                    <!--<div>Order Number: {{order.orderNum}}</div>-->
+                </div>
+                <img class="block" height="100px" ng-src="{{order.imageUrl}}" alt="shirt preview here" />
             </div>
             <!--<div>Quantity: {{order.quantity}}</div>-->
             <!--<div>Total: {{order.total}}</div>-->
-            <img class="block" height="100px" ng-src="{{order.front}}" alt="shirt preview here" />
-            <button ng-click="testFB()" class="right">Details</button>
-            <button class="right">Mark as Filled</button>
+
+            
         </li>
     </ul>
 
