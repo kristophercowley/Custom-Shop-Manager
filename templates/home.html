@@ -18,10 +18,11 @@
     <ul class="list-group">
         <li class="well list-item" ng-repeat="order in orders | filter: searchText">
             <div class="panel panel-heading">
-                <h3>Order Num:{{order.saveNum}}, Order Date: {{order.date | date:'MM/dd/yyyy' }}, Time: {{order.date | date:'HH:mm:ss'}}, Customer Name: {{order.user}} <button ng-click="details = !details" class="right">Details</button>
-            <button class="right">Mark as Filled</button> </h3>
+                <h3>Order Num:{{order.saveNum}}, Order Date: {{order.date | date:'MM/dd/yyyy' }}, Time: {{order.date | date:'HH:mm:ss'}}, Customer Name: {{order.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
+            <button ng-click="filled = !filled" class="right">Mark as Filled</button><button ng-click="read = !read" class="right">Mark as Read</button> </h3>
             </div>
-            <i class="fa fa-exclamation"> unread</i>
+            <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
+            <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
             <!--<input type="text" ng-model="data.text"/>
             <h1>You said: {{data.text}}</h1>-->
             <div ng-show="details">
@@ -42,7 +43,7 @@
             <!--<div>Quantity: {{order.quantity}}</div>-->
             <!--<div>Total: {{order.total}}</div>-->
 
-            
+
         </li>
     </ul>
 

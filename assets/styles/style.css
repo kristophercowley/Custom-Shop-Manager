@@ -21,3 +21,9 @@ h1 {
 .hover:hover{
     background-color: beige;
 }
+.read{
+    color: red;
+}
+.filled{
+    color: green;
+}
