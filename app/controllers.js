@@ -4,7 +4,10 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
     var ref = new Firebase(DBREF)
     // var syncObject = new $firebaseObject(ref);
     // syncObject.$bindTo($scope, 'data');
+    
+    // var activeRef = ref.child('Active');
     $scope.orders = $firebaseArray(ref);
+    
     // $scope.orders.$add({test: "From Home Base", hope: "This works?"})
     // $scope.test = "Hello from main controller!";   
     // $scope.orders = ShirtService.getOrders();
@@ -15,6 +18,18 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
             userOrders: []
         }
     ]
+    //Declares archive fire array
+    var archRef = ref.child('Archives');
+    $scope.archives = $firebaseArray(archRef);
+    // Sends Active order to archive array
+    $scope.shelf = function (i) {
+        $scope.archives.$add(i);
+        $scope.orders.$remove(i);
+        console.log($scope.archives);
+    }
+    $scope.delete = function(i){
+// .remove? angular fire
+    }
    
     
     // $scope.testFB = function(){

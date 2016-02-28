@@ -4,7 +4,9 @@
 <div class="panel panel-body">
     <!--<button ui-sref="fullfilled">Full</button>-->
     <button ng-click="swap = !swap">Swap</button>
-    <div ng-show="swap">DFGHJHGFDFGHJKHGFD</div>
+    <div ng-show="swap">
+        
+    </div>
     <i class="badge">New Order</i>
     <label class="right">Search
         <input type="text" ng-model="searchText" />
@@ -16,10 +18,10 @@
     </div>-->
 
     <ul class="list-group">
-        <li class="well list-item" ng-repeat="order in orders | filter: searchText">
+        <li class="well list-item" ng-repeat="order in orders track by $index" ng-hide="archive">
             <div class="panel panel-heading">
                 <h3>Order Num:{{order.saveNum}}, Order Date: {{order.date | date:'MM/dd/yyyy' }}, Time: {{order.date | date:'HH:mm:ss'}}, Customer Name: {{order.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
-            <button ng-click="filled = !filled" class="right">Mark as Filled</button><button ng-click="read = !read" class="right">Mark as Read</button> </h3>
+            <button ng-click="filled = !filled" class="right">Mark as Filled</button><button ng-click="read = !read" class="right">Mark as Read</button>  <button ng-click="archives = !archives; shelf(order)" class="right">Archive</button><a ng=click="delete($index)"class="badge">X</a></h3>
             </div>
             <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
             <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>

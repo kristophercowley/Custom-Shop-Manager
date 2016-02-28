@@ -12,8 +12,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('fullfilled', {
             url: ('/fullfilled'),
             templateUrl: ('/templates/fullfilled.html'),
-            controller: ('FullfilledController'),
-            controllerAs: ('oc')
+            controller: ('MainController'),
+            controllerAs: ('mc')
         })
         
         .state('control-panel', {
