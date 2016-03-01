@@ -9,7 +9,7 @@
 <ul class="list-group">
     <li class="well list-item" ng-repeat="archive in archives | filter: searchText">
         <div class="panel panel-heading">
-            <h3><span class=""> <b>#{{archive.details.saveNum}} </b> </span> - archive Date: {{archive.details.date | date:'MM/dd/yyyy' }}, - Time: {{archive.details.date | date:'HH:mm:ss'}}, - Customer Name: {{archive.details.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
+            <h3><span class=""> <b>#{{archive.details.saveNum}} </b> </span> - Date: {{archive.details.date | date:'MM/dd/yyyy' }}, - Time: {{archive.details.date | date:'HH:mm:ss'}}, - Customer Name: {{archive.details.user}} <button ng-click="delete(archive)" class="right  btn-danger"> X </button><button  ng-click="details = !details; read = true" class="right">Details</button>
             <button ng-click="filled = !filled" class="right">Order Complete </button><button ng-click="unfilled = !unfilled" class="right"> Flag </button></h3>
         </div>
         <i ng-show="unfilled" class="fa fa-exclamation fa-lg read"> Flag </i>
