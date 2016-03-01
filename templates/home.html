@@ -1,27 +1,23 @@
 <div class="panel panel-heading">
     <h1><button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop Strange</b><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
 </div>
-<div class="panel panel-body">
-    <!--<button ui-sref="fullfilled">Full</button>-->
-    <button ng-click="swap = !swap">Swap</button>
-    <div ng-show="swap">
-        
-    </div>
-    <i class="badge">New Order</i>
+<div class="panel panel-body">        
+    <i class="badge">New Orders - {{orders.length}}</i>
     <label class="right">Search
         <input type="text" ng-model="searchText" />
     </label>
 </div>
+
 <div class="panel panel-body">
     <!--<div ng-repeat="order in orders">test:{{order.test}}//hope:{{order.hope}} order name: {{order.name}} user:{{order.user}} shirtcolor:{{order.shirtColor}}
         image:{{order.image}}
     </div>-->
 
     <ul class="list-group">
-        <li class="well list-item" ng-repeat="order in orders track by $index" ng-hide="archive">
+        <li class="well list-item" ng-repeat="order in orders  | filter: searchText" ng-hide="archive">
             <div class="panel panel-heading">
-                <h3>Order Num:{{order.saveNum}}, Order Date: {{order.date | date:'MM/dd/yyyy' }}, Time: {{order.date | date:'HH:mm:ss'}}, Customer Name: {{order.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
-            <button ng-click="filled = !filled" class="right">Mark as Filled</button><button ng-click="read = !read" class="right">Mark as Read</button>  <button ng-click="archives = !archives; shelf(order)" class="right">Archive</button><a ng=click="delete($index)"class="badge">X</a></h3>
+                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, - Customer Name: {{order.details.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
+            <button ng-click="filled = !filled" class="right">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="right">Archive</button></h3> 
             </div>
             <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
             <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
@@ -29,24 +25,30 @@
             <h1>You said: {{data.text}}</h1>-->
             <div ng-show="details">
                 <div class="orderInfo">
-                    <div>Order Name: {{order.name}}</div>
-                    <div>Order Date: {{order.date | date:'MM/dd/yyyy'}}</div>
-                    <div>Time: {{order.date | date:'HH:mm:ss'}}</div>
+                    <div>Order Name: {{order.details.name}}</div>
+                    <div>Order Date: {{order.details.date | date:'MM/dd/yyyy'}}</div>
+                    <div>Time: {{order.details.date | date:'HH:mm:ss'}}</div>
                     <!--<div>Filled: {{order.fullfilled}}</div>-->
-                    <div>Shirt Color: {{order.shirtColor}}</div>
-                    <div>Image Name: {{order.imageName}}</div>
+                    <div>Shirt Color: {{order.details.shirtColor}}</div>
+                    <div>Image Name: {{order.details.imageName}}</div>
                     <!--<div>Image Url: {{order.imageUrl}}</div>-->
-                    <div>Price: {{order.price | currency}}</div>
-                    <div>saveNum: {{order.saveNum}}</div>
+                    <div>Price: {{order.details.price | currency}}</div>
+                    <div>saveNum: {{order.details.saveNum}}</div>
+                    <div>shirtUrl: {{order.details.shirtUrl}}</div>
                     <!--<div>Order Number: {{order.orderNum}}</div>-->
                 </div>
-                <img class="block" height="100px" ng-src="{{order.imageUrl}}" alt="shirt preview here" />
+                <div class="shirt-div" style="text-align:center;">
+                    <img class="block" ng-src="{{order.details.shirtUrl}}" alt="shirt preview here" height="300" />
+                    <div class="image-div" style="top: {{order.logo.position.top}}px; left: {{order.logo.position.left}}px; height: {{order.logo.size.height}}px; width: {{order.logo.size.width}}px;">
+                        <img class="image" ng-src="{{order.details.imageUrl}}">                    
+                        <!--{{order.logo.position}}
+                        <br> {{order.logo.size}}-->
+                    </div>
+                </div>
             </div>
             <!--<div>Quantity: {{order.quantity}}</div>-->
             <!--<div>Total: {{order.total}}</div>-->
-
-
         </li>
     </ul>
-
 </div>
+<!--<div ng-repeat="order in orders">{{order}}</div>-->

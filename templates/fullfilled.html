@@ -1,5 +1,45 @@
-<div class="panel panel-heading"><h1>Fullfilled Orders and Archives</h1></div>
-<h3><a ui-sref="home">Home</a></h3>
-<ul>
-    <li ng-repeat="archive in archives">{{archive}}</li>
+<div class="panel panel-heading">
+    <h1><button id="home-btn" class="hover" ui-sref="home">Home</button><b>Archives</b></h1>
+</div>
+
+<!--<ul>
+    <li ng-repeat="archive in archives"> {{archive.details}}</li>
+</ul>-->
+
+<ul class="list-group">
+    <li class="well list-item" ng-repeat="archive in archives | filter: searchText">
+        <div class="panel panel-heading">
+            <h3><span class=""> <b>#{{archive.details.saveNum}} </b> </span> - archive Date: {{archive.details.date | date:'MM/dd/yyyy' }}, - Time: {{archive.details.date | date:'HH:mm:ss'}}, - Customer Name: {{archive.details.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
+            <button ng-click="filled = !filled" class="right">Order Complete </button><button ng-click="unfilled = !unfilled" class="right"> Flag </button></h3>
+        </div>
+        <i ng-show="unfilled" class="fa fa-exclamation fa-lg read"> Flag </i>
+        <i ng-hide="filled" class="fa fa-star fa-lg filled"> Order Complete </i>
+        <!--<input type="text" ng-model="data.text"/>
+            <h1>You said: {{data.text}}</h1>-->
+        <div ng-show="details">
+            <div class="orderInfo">
+                <div> Name: {{archive.details.name}}</div>
+                <div> Date: {{archive.details.date | date:'MM/dd/yyyy'}}</div>
+                <div>Time: {{archive.details.date | date:'HH:mm:ss'}}</div>
+                <!--<div>Filled: {{archive.fullfilled}}</div>-->
+                <div>Shirt Color: {{archive.details.shirtColor}}</div>
+                <div>Image Name: {{archive.details.imageName}}</div>
+                <!--<div>Image Url: {{archive.imageUrl}}</div>-->
+                <div>Price: {{archive.details.price | currency}}</div>
+                <div>saveNum: {{archive.details.saveNum}}</div>
+                <div>shirtUrl: {{archive.details.shirtUrl}}</div>
+                <!--<div>archive Number: {{archive.archiveNum}}</div>-->
+            </div>
+            <div class="shirt-div" style="text-align:center;">
+                <img class="block" ng-src="{{archive.details.shirtUrl}}" alt="shirt preview here" height="300" />
+                <div class="image-div" style="top: {{archive.logo.position.top}}px; left: {{archive.logo.position.left}}px; height: {{archive.logo.size.height}}px; width: {{archive.logo.size.width}}px;">
+                    <img class="image" ng-src="{{archive.details.imageUrl}}">
+                    <!--{{archive.logo.position}}
+                        <br> {{archive.logo.size}}-->
+                </div>
+            </div>
+        </div>
+        <!--<div>Quantity: {{archive.quantity}}</div>-->
+        <!--<div>Total: {{archive.total}}</div>-->
+    </li>
 </ul>

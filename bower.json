@@ -24,6 +24,7 @@
     "angularfire": "^1.1.4",
     "ui-bootstrap": "^1.1.2",
     "angular-bootstrap": "^1.1.2",
-    "font-awesome": "fontawesome#^4.5.0"
+    "font-awesome": "fontawesome#^4.5.0",
+    "jquery-ui": "^1.11.4"
   }
 }

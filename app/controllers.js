@@ -1,12 +1,17 @@
 /* global Firebase */
-app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth) {
+app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+    // jQuery ui draggable resizable
+    $timeout(function(){
+        $('.image-div').resizable({ aspectRatio: true });
+    }, 3000)
+    
     // var db = new Firebase(DBREF);
     var ref = new Firebase(DBREF)
     // var syncObject = new $firebaseObject(ref);
     // syncObject.$bindTo($scope, 'data');
     
-    // var activeRef = ref.child('Active');
-    $scope.orders = $firebaseArray(ref);
+    var activeRef = ref.child('Active Orders');
+    $scope.orders = $firebaseArray(activeRef);
     
     // $scope.orders.$add({test: "From Home Base", hope: "This works?"})
     // $scope.test = "Hello from main controller!";   
@@ -27,9 +32,8 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
         $scope.orders.$remove(i);
         console.log($scope.archives);
     }
-    $scope.delete = function(i){
-// .remove? angular fire
-    }
+    // $scope.delete = function(i){
+    // .remove? angular fire
    
     
     // $scope.testFB = function(){
