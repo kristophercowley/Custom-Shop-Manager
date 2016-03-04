@@ -16,8 +16,8 @@
     <ul class="list-group">
         <li class="well list-item" ng-repeat="order in orders  | filter: searchText" ng-hide="archive">
             <div class="panel panel-heading">
-                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, - Customer Name: {{order.details.user}} <button  ng-click="details = !details; read = true" class="right">Details</button>
-            <button ng-click="filled = !filled" class="right">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="right">Archive</button></h3> 
+                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, Email: {{order.details.email}} <button  ng-click="details = !details; read = true" class="right hover">Details</button>
+            <button ng-click="filled = !filled" class="right hover">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="right hover">Archive</button></h3> 
             </div>
             <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
             <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
@@ -25,10 +25,11 @@
             <h1>You said: {{data.text}}</h1>-->
             <div ng-show="details">
                 <div class="orderInfo">
+                    <div>Customer Name: {{order.details.user}}</div>
                     <div>Order Name: {{order.details.name}}</div>
                     <div>Order Date: {{order.details.date | date:'MM/dd/yyyy'}}</div>
                     <div>Time: {{order.details.date | date:'HH:mm:ss'}}</div>
-                    <!--<div>Filled: {{order.fullfilled}}</div>-->
+                    <div>Email: {{order.details.email}}</div>
                     <div>Shirt Color: {{order.details.shirtColor}}</div>
                     <div>Image Name: {{order.details.imageName}}</div>
                     <!--<div>Image Url: {{order.imageUrl}}</div>-->
