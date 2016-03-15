@@ -92,3 +92,8 @@ h1 {
     right: -5px;
     bottom: -5px;
 }
+/*Control Panel*/
+/*Charts*/
+.block{
+    display: inline-block;
+}
