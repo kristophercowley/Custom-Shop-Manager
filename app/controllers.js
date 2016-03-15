@@ -1,18 +1,18 @@
 /* global Firebase */
-app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+app.controller('MainController', function($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
     // jQuery ui draggable resizable
-    $timeout(function(){
+    $timeout(function() {
         $('.image-div').resizable({ aspectRatio: true });
     }, 3000)
-    
+
     // var db = new Firebase(DBREF);
     var ref = new Firebase(DBREF)
     // var syncObject = new $firebaseObject(ref);
     // syncObject.$bindTo($scope, 'data');
-    
+
     var activeRef = ref.child('Active Orders');
     $scope.orders = $firebaseArray(activeRef);
-    
+
     // $scope.orders.$add({test: "From Home Base", hope: "This works?"})
     // $scope.test = "Hello from main controller!";   
     // $scope.orders = ShirtService.getOrders();
@@ -27,39 +27,50 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
     var archRef = ref.child('Archives');
     $scope.archives = $firebaseArray(archRef);
     // Sends Active order to archive array
-    $scope.shelf = function (i) {
+    $scope.shelf = function(i) {
         $scope.archives.$add(i);
         $scope.orders.$remove(i);
         console.log($scope.archives);
     }
-     $scope.delete = function(archive){
-     $scope.archives.$remove(archive);
-     }
-   
-    
-    // $scope.testFB = function(){
-    //     console.log("testFB working?", $scope.customers[0])
-    // db.child('orders').child('branch').get({name:"anonymous", thing: "That Thing"});
-    // }
-    // $scope.orders = [
-    //     {
-    //         orderNum: 8675309,
-    //         orderCust: "John Doh",
-    //         orderColor: "Black",
-    //         orderSize: "xxl",
-    //         orderImg: "bcw"
-    //     }
-    // ]
+    $scope.delete = function(archive) {
+        $scope.archives.$remove(archive);
+    }
+
+// Angular Charts
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A', 'Series B'];
+    $scope.data = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+    ];
+    $scope.onClick = function(points, evt) {
+        console.log(points, evt);
+    };
+    // End Angular Charts
+
+    //     // $scope.testFB = function(){
+    //     //     console.log("testFB working?", $scope.customers[0])
+    //     // db.child('orders').child('branch').get({name:"anonymous", thing: "That Thing"});
+    //     // }
+    //     // $scope.orders = [
+    //     //     {
+    //     //         orderNum: 8675309,
+    //     //         orderCust: "John Doh",
+    //     //         orderColor: "Black",
+    //     //         orderSize: "xxl",
+    //     //         orderImg: "bcw"
+    //     //     }
+    //     // ]
 })
 
-app.controller('OrderController', function ($scope) {
+app.controller('OrderController', function($scope) {
     $scope.test = "Hello from order controller!"
 })
 
-app.controller('BlankController', function ($scope) {
+app.controller('BlankController', function($scope) {
     $scope.test = "Hello from blank controller!"
 })
 
-app.controller('Blank2Controller', function ($scope) {
+app.controller('Blank2Controller', function($scope) {
     $scope.test = "Hello from blank2 controller!"
 })
