@@ -100,3 +100,18 @@ h1 {
 .center{
     text-align: center;
 }
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+
+/*.textright{
+    text-align: right;
+    display: inline-block;
+}
+.textleft{
+    text-align: left;
+    display: inline-block;
+}*/

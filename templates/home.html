@@ -1,8 +1,8 @@
-<div class="panel panel-heading">
-    <h1><button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><b>Custom Shop Strange</b><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button></h1>
+<div style="text-align:center" class="panel panel-heading">
+    <button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button><h1><b>Custom Shop Strange</b></h1>
 </div>
 <div class="panel panel-body">        
-    <i class="badge">New Orders - {{orders.length}}</i>
+    <span>New Orders : <i class="badge">{{orders.length}}</i></span>
     <label class="right">Search
         <input type="text" ng-model="searchText" />
     </label>
@@ -16,8 +16,8 @@
     <ul class="list-group">
         <li class="well list-item" ng-repeat="order in orders  | filter: searchText" ng-hide="archive">
             <div class="panel panel-heading">
-                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, Email: {{order.details.email}} <button  ng-click="details = !details; read = true" class="right hover">Details</button>
-            <button ng-click="filled = !filled" class="right hover">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="right hover">Archive</button></h3> 
+                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, Email: {{order.details.email}} <span style="text-align: right"><button  ng-click="details = !details; read = true" class="hover">Details</button>
+            <button ng-click="filled = !filled" class="hover">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="hover">Archive</button></span></h3> 
             </div>
             <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
             <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
