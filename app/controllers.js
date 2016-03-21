@@ -1,5 +1,7 @@
 /* global Firebase */
+
 app.controller('MainController', function($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+   
     // jQuery ui draggable resizable
     $timeout(function() {
         $('.image-div').resizable({ aspectRatio: true });
@@ -84,7 +86,7 @@ app.controller('OrderController', function($scope, DBREF, $firebaseArray) {
             {
                 "type": "mixed",
                 "scale-x": {
-                    "values": ["Jan", "Feb", "Mar", "Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"],
+                    "values": ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
                     "guide": {
                         "line-width": "1px",
                         "line-style": "solid"

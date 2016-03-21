@@ -1,7 +1,50 @@
+<!--Styles from bootstrap material-->
+<a class="btn btn-default waves-effect waves-light">Default</a>
+<a class="btn btn-primary waves-effect waves-light">Primary</a>
+<nav class="navbar default-color">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" uib-dropdown-toggle="collapse" uib-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand waves-effect waves-light" href="#">Brand</a>
+        </div>
+        <!--Dropdown-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="waves-effect waves-light">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#" class="waves-effect waves-light">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle waves-effect waves-light" uib-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group waves-effect waves-light">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--My Stuffs-->
 <div style="text-align:center" class="panel panel-heading">
-    <button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button><button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button><h1><b>Custom Shop Strange</b></h1>
+    <button class="hover" id="control-btn" ui-sref='control-panel'>Control Panel</button>
+    <button class="hover" id="fill-btn" ui-sref='fullfilled'>Archives</button>
+    <h1><b>Custom Shop Strange</b></h1>
 </div>
-<div class="panel panel-body">        
+<div class="panel panel-body">
     <span>New Orders : <i class="badge">{{orders.length}}</i></span>
     <label class="right">Search
         <input type="text" ng-model="searchText" />
@@ -14,42 +57,99 @@
     </div>-->
 
     <ul class="list-group">
-        <li class="well list-item" ng-repeat="order in orders  | filter: searchText" ng-hide="archive">
-            <div class="panel panel-heading">
-                <h3><span class=""> <b>#{{order.details.saveNum}} </b> </span> - Order Date: {{order.details.date | date:'MM/dd/yyyy' }}, - Time: {{order.details.date | date:'HH:mm:ss'}}, Email: {{order.details.email}} <span style="text-align: right"><button  ng-click="details = !details; read = true" class="hover">Details</button>
-            <button ng-click="filled = !filled" class="hover">Mark as Filled</button><!--<button ng-click="read = !read" class="right">Mark as Read</button>-->  <button ng-click=" shelf(order)" class="hover">Archive</button></span></h3> 
-            </div>
-            <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
-            <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
-            <!--<input type="text" ng-model="data.text"/>
-            <h1>You said: {{data.text}}</h1>-->
-            <div ng-show="details">
-                <div class="orderInfo">
-                    <div>Customer Name: {{order.details.user}}</div>
-                    <div>Order Name: {{order.details.name}}</div>
-                    <div>Order Date: {{order.details.date | date:'MM/dd/yyyy'}}</div>
-                    <div>Time: {{order.details.date | date:'HH:mm:ss'}}</div>
-                    <div>Email: {{order.details.email}}</div>
-                    <div>Shirt Color: {{order.details.shirtColor}}</div>
-                    <div>Image Name: {{order.details.imageName}}</div>
-                    <!--<div>Image Url: {{order.imageUrl}}</div>-->
-                    <div>Price: {{order.details.price | currency}}</div>
-                    <div>saveNum: {{order.details.saveNum}}</div>
-                    <div>shirtUrl: {{order.details.shirtUrl}}</div>
-                    <!--<div>Order Number: {{order.orderNum}}</div>-->
-                </div>
-                <div class="shirt-div" style="text-align:center;">
-                    <img class="block" ng-src="{{order.details.shirtUrl}}" alt="shirt preview here" height="300" />
-                    <div class="image-div" style="top: {{order.logo.position.top}}px; left: {{order.logo.position.left}}px; height: {{order.logo.size.height}}px; width: {{order.logo.size.width}}px;">
-                        <img class="image" ng-src="{{order.details.imageUrl}}">                    
-                        <!--{{order.logo.position}}
+        <li class="list-group-item" ng-repeat="order in orders  | filter: searchText" ng-hide="archive">
+            <div class="media">
+                <div class="media-left">
+                    <div class="media-object">
+                        <div class="shirt-div" style="display:inline-block">
+                            <img class="block" ng-src="{{order.details.shirtUrl}}" alt="shirt preview here" height="300" />
+                            <div class="image-div" style="top: {{order.logo.position.top}}px; left: {{order.logo.position.left}}px; height: {{order.logo.size.height}}px; width: {{order.logo.size.width}}px;">
+                                <img class="image" ng-src="{{order.details.imageUrl}}">
+                                <!--{{order.logo.position}}
                         <br> {{order.logo.size}}-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <div class="media-heading">
+                        <h3>
+                        <div class="btn-group pull-right">
+                            <button ng-click="details = !details; read = true" class="btn btn-info btn-raised">Details</button>
+                            <button ng-click="filled = !filled" class="btn btn-success btn-raised">Mark as Filled</button>
+                            <!--<button ng-click="read = !read" class="right">Mark as Read</button>-->
+                            <button ng-click=" shelf(order)" class="btn btn-danger btn-raised">Archive</button> 
+                        </div>
+                        <span class=""> 
+                            <b>Order Id: {{order.$id}} </b>
+                             - Order Date: {{order.details.date | date:'MM/dd/yyyy'}},
+                             - Time: {{order.details.date | date:'HH:mm:ss'}}, 
+                             Email: {{order.details.email}} 
+                        </span>
+                        </span>
+                        </h3>
+                    </div>
+                    <div class="media-content">
+                        <div ng-show="details">
+                            <table class="table table-striped table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>Order Number: </td>
+                                        <td>{{order.details.saveNum}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Name: </td>
+                                        <td>{{order.details.user}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Order Name: </td>
+                                        <td>{{order.details.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Order Date: </td>
+                                        <td>{{order.details.date | date:'MM/dd/yyyy'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time: </td>
+                                        <td>{{order.details.date | date:'HH:mm:ss'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email: </td>
+                                        <td>{{order.details.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shirt Color: </td>
+                                        <td>{{order.details.shirtColor}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Image Name: </td>
+                                        <td>{{order.details.imageName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Individual Price: </td>
+                                        <td>{{order.details.price | currency}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Order Number: </td>
+                                        <td>{{order.details.saveNum}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shirt URL: </td>
+                                        <td>{{order.details.shirtUrl}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Order Total: </td>
+                                        <td>{{order.details.total}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <i ng-hide="read" class="fa fa-exclamation fa-lg read"> unread</i>
+                            <i ng-show="filled" class="fa fa-star fa-lg filled"> order filled</i>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!--<div>Quantity: {{order.quantity}}</div>-->
-            <!--<div>Total: {{order.total}}</div>-->
+            <hr/>
         </li>
     </ul>
 </div>
-<!--<div ng-repeat="order in orders">{{order}}</div>-->

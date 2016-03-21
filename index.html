@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Custom Shop Control Panel</title>
+
+    <!--Bootstrap Material-->
+
     <!--Bootstrap-->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <!--Bootstrap Material-->
-    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/bootstrap-material-design.min.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/ripples.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/ripples.css">-->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/ripples.css.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/bootstrap-material-design.css.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/ripples.min.css.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/js/material.min.js.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/css/bootstrap-material-design.min.css.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/js/ripples.min.js.map">-->
+
     <!--Font Awesome-->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
     <!--App Styles-->
@@ -33,11 +45,13 @@
     <!--jQuery ui-->
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!--Angular ui-bootstrap-->
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
     <!--Bootstrap JS-->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!--Bootstrap Material-->
-    <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <!--<script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/js/material.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.9/js/ripples.min.js"></script>
 
     <!--App JS-->
     <script src="app/app.js"></script>
@@ -45,9 +59,10 @@
     <script src="app/routes.js"></script>
     <script src="app/services.js"></script>
 
-
-
-
+    <!--Initializes Bootstrap Material-->
+    <script>
+        $.material.init()
+    </script>
 </body>
 
 </html>
