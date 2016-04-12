@@ -20,11 +20,11 @@
         image:{{order.image}}
     </div>-->
     
-    <span>New Orders : <i class="badge">{{orders.length}}</i></span>
+    <h3>New Orders : <i class="badge" style="padding:8px"><b>{{orders.length}}</b></i></h3>
     <hr>
     <!--Shell for Orders-->
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="order in orders">
+        <li class="list-group-item" ng-repeat="order in orders | filter: searchText">
             <h1> 
             Order ID : {{order.$id}} 
                <div class="btn-group pull-right">
@@ -129,7 +129,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Order Sub-Total: </td>
-                                                <td>{{item.total}}</td>
+                                                <td>{{item.total | currency}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
