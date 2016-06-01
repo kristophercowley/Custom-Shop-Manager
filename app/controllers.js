@@ -1,9 +1,9 @@
 /* global Firebase */
 
-app.controller('MainController', function($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
-   
+app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+
     // jQuery ui draggable resizable
-    $timeout(function() {
+    $timeout(function () {
         $('.image-div').resizable({ aspectRatio: true });
     }, 3000)
 
@@ -29,12 +29,12 @@ app.controller('MainController', function($scope, ShirtService, DBREF, $firebase
     var archRef = ref.child('Archives');
     $scope.archives = $firebaseArray(archRef);
     // Sends Active order to archive array
-    $scope.shelf = function(i) {
+    $scope.shelf = function (i) {
         $scope.archives.$add(i);
         $scope.orders.$remove(i);
         console.log($scope.archives);
     }
-    $scope.delete = function(archive) {
+    $scope.delete = function (archive) {
         $scope.archives.$remove(archive);
     }
 
@@ -44,13 +44,15 @@ app.controller('MainController', function($scope, ShirtService, DBREF, $firebase
 
 })
 
-app.controller('OrderController', function($scope, DBREF, $firebaseArray) {
+app.controller('OrderController', function (ChartService, $scope, DBREF, $firebaseArray, $firebaseObject) {
     $scope.test = "Hello from order controller!";
     var ref = new Firebase(DBREF);
     var activeRef = ref.child('Active Orders');
     $scope.orders = $firebaseArray(activeRef);
+
     console.log($scope.orders);
     // console.log($scope.orders.ActiveOrders);
+
 
     // Zing Charts Line
     $scope.myJson = {
@@ -72,13 +74,38 @@ app.controller('OrderController', function($scope, DBREF, $firebaseArray) {
     };
 
     // Zing Charts 3
-    $scope.myJson3 = {
-        type: 'bar',
-        series: [
-            { values: [54, 23, 34, 23, 43, 45, 12, 1, 22, 32, 12, 77] },
-            { values: [10, 15, 16, 20, 40, 3, 4, 5, 6, 7, 8, 98] }
-        ]
-    };
+    // $scope.myJson3 = {
+    //     type: 'bar',
+    //     series: [
+    //         { values: [54, 23, 34, 23, 43, 45, 12, 1, 22, 32, 12, 77] },
+    //         { values: [10, 15, 16, 20, 40, 3, 4, 5, 6, 7, 8, 98] }
+    //     ]
+    // };
+    // $scope.myJson3 = {
+    //     type: 'bar',
+    //     series: [
+    //         { values: [0] },
+    //         // { values: [0] }
+    //     ]
+    // };
+
+
+
+    $scope.$watch(ChartService.myJson3, function (ref) {
+        $scope.myJson3 = ChartService.myJson3;
+    })
+    $scope.myJson3 = ChartService.myJson3;
+
+    // Not fully functional// should update on new order
+    $scope.$watch($scope.orders, function (ref) {
+        console.log("service watcher running update");
+        ChartService.updateChartData();
+    })
+    // Updates chart on view change
+    // $scope.$on('$stateChangeSuccess', function () {
+    //     alert('On state change function working');
+
+    // });
 
     // Zing 4 test config
     var myConfig = {
@@ -145,10 +172,10 @@ app.controller('OrderController', function($scope, DBREF, $firebaseArray) {
     });
 })
 
-app.controller('BlankController', function($scope) {
+app.controller('BlankController', function ($scope) {
     $scope.test = "Hello from blank controller!"
 })
 
-app.controller('Blank2Controller', function($scope) {
+app.controller('Blank2Controller', function ($scope) {
     $scope.test = "Hello from blank2 controller!"
 })

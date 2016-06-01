@@ -52,6 +52,38 @@ app.service('ShirtService', function () {
     }
 })
 
-app.service('Blank2Service', function () {
+app.factory('ChartService', function (DBREF, $firebaseArray, $firebaseObject) {
+    var ref = new Firebase(DBREF);
+    var activeRef = ref.child('Active Orders');
+    var chartData = $firebaseArray(activeRef);
+    chartData.$loaded(function (ref) {
+        updateChartData()
+    })
+    var myJson3 = {
+        type: 'bar',
+        series: [
+            { values: [0] },
+            // { values: [0] }
+        ]
+    };
+    var getChartData = function () {
+        return myJson3;
+    }
 
+    var updateChartData = function () {
+        myJson3.series[0].values = []
+
+        for (var i = 0; i < chartData.length; i++) {
+            var current = chartData[i]
+            console.log("current service", current)
+            myJson3.series[0].values.push(current.grandTotal);
+        }
+        // console.log("myJSON 3:", myJson3)
+    }
+    
+    return {
+        getChartData: getChartData,
+        myJson3: myJson3,
+        updateChartData: updateChartData
+    }
 })

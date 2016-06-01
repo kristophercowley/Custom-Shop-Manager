@@ -19,18 +19,18 @@
     <!--<div ng-repeat="order in orders">test:{{order.test}}//hope:{{order.hope}} order name: {{order.name}} user:{{order.user}} shirtcolor:{{order.shirtColor}}
         image:{{order.image}}
     </div>-->
-    
+
     <h3>New Orders : <i class="badge" style="padding:8px"><b>{{orders.length}}</b></i></h3>
     <hr>
     <!--Shell for Orders-->
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="order in orders | filter: searchText">
+        <li class="list-group-item" ng-repeat="order in orders | orderBy: 'orderDate': true |filter: searchText">
             <h1> 
             Order ID : {{order.$id}} 
                <div class="btn-group pull-right">
                    <button ng-click="details = !details; read = true" class="btn btn-info btn-raised">Details</button>
-                   <button ng-click="filled = !filled" class="btn btn-success btn-raised">Mark as Filled</button>
-                            <!--<button ng-click="read = !read" class="right">Mark as Read</button>-->
+                   <button ng-click="filled = !filled" class="btn btn-success btn-raised">Filled</button>
+                   <button ng-click="read = !read" class="btn btn-warning btn-raised">Read</button>
                    <button ng-click=" shelf(order)" class="btn btn-danger btn-raised">Archive</button> 
               </div>
            </h1>
@@ -83,10 +83,6 @@
                                 <div ng-show="details">
                                     <table class="table table-striped table-hover">
                                         <tbody>
-                                            <!--<tr>
-                                                <td>Order Id: </td>
-                                                <td>{{item.$id}}</td>
-                                            </tr>-->
                                             <tr>
                                                 <td>Customer Name: </td>
                                                 <td>{{item.details.user}}</td>
@@ -99,21 +95,9 @@
                                                 <td>Order Date: </td>
                                                 <td>{{item.details.date | date:'MM/dd/yyyy'}}</td>
                                             </tr>
-                                            <!--<tr>
-                                                <td>Time: </td>
-                                                <td>{{item.details.date | date:'HH:mm:ss'}}</td>
-                                            </tr>-->
-                                            <!--<tr>
-                                                <td>Email: </td>
-                                                <td>{{item.details.email}}</td>
-                                            </tr>-->
                                             <tr>
                                                 <td>Shirt Color: </td>
                                                 <td>{{item.details.shirtColor}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Image Name: </td>
-                                                <td>{{item.details.imageName}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Shirt URL: </td>
