@@ -34,8 +34,9 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
         $scope.orders.$remove(i);
         console.log($scope.archives);
     }
-    $scope.delete = function (archive) {
-        $scope.archives.$remove(archive);
+    $scope.remove = function (i) {
+        console.log('removing from archive',i)
+        $scope.archives.$remove(i);
     }
 
 

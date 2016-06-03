@@ -31,7 +31,7 @@
                    <button ng-click="details = !details; read = true" class="btn btn-info btn-raised">Details</button>
                    <button ng-click="filled = !filled" class="btn btn-success btn-raised">Filled</button>
                    <button ng-click="read = !read" class="btn btn-warning btn-raised">Read</button>
-                   <button ng-click=" shelf(order)" class="btn btn-danger btn-raised">Archive</button> 
+                   <button ng-click="shelf(order)" class="btn btn-danger btn-raised">Archive</button> 
               </div>
            </h1>
             <h2>Order Date: {{order.orderDate | date: 'MM/dd/yyyy h:mm:ss a'}} {{order.email}}<br/>
@@ -117,7 +117,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>
