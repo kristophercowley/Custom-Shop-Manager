@@ -38,11 +38,6 @@ app.controller('MainController', function ($scope, ShirtService, DBREF, $firebas
         console.log('removing from archive',i)
         $scope.archives.$remove(i);
     }
-
-
-
-
-
 })
 
 app.controller('OrderController', function (ChartService, $scope, DBREF, $firebaseArray, $firebaseObject) {
