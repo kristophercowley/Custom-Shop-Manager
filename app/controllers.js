@@ -1,7 +1,9 @@
 /* global Firebase */
 
-app.controller('MainController', function ($scope, ShirtService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
-
+app.controller('MainController', function ($scope, ShirtService, ChatService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+    ChartService.chartData.$loaded(function(res){
+    ChartService.updateChartData()     
+    })
     // jQuery ui draggable resizable
     $timeout(function () {
         $('.image-div').resizable({ aspectRatio: true });
@@ -96,7 +98,6 @@ app.controller('OrderController', function (ChartService, $scope, DBREF, $fireba
     })
 
     $scope.orders.$loaded(function(res){
-        debugger
         for (var i = 0; i < res.length; i++) {
             var current = res[i]
             // console.log("current service", current)
