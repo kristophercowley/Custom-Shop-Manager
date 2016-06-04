@@ -46,7 +46,7 @@ app.controller('OrderController', function (ChartService, $scope, DBREF, $fireba
     var activeRef = ref.child('Active Orders');
     $scope.orders = $firebaseArray(activeRef);
 
-    console.log($scope.orders);
+    // console.log($scope.orders);
     // console.log($scope.orders.ActiveOrders);
 
 
@@ -95,13 +95,23 @@ app.controller('OrderController', function (ChartService, $scope, DBREF, $fireba
     // Not fully functional// should update on new order
     $scope.$watch($scope.orders, function (ref) {
         console.log("service watcher running update");
-        ChartService.updateChartData();
+        $scope.myJson3 = ChartService.updateChartData();
+    })
+
+    $scope.orders.$loaded(function(res){
+        debugger
+        for (var i = 0; i < res.length; i++) {
+            var current = res[i]
+            // console.log("current service", current)
+            ChartService.myJson3.series[0].values.push(current.grandTotal);
+        }
+        $scope.myJson3 = ChartService.myJson3;
+        
     })
     // Updates chart on view change
-    // $scope.$on('$stateChangeSuccess', function () {
-    //     alert('On state change function working');
-
-    // });
+    $scope.$on('$stateChangeSuccess', function () {
+        
+    });
 
     // Zing 4 test config
     var myConfig = {
