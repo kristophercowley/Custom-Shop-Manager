@@ -15,7 +15,7 @@
     </label>-->
 <!--</div>-->
 
-<div class="container">
+<div class="panel panel-body container">
     <!--<div ng-repeat="order in orders">test:{{order.test}}//hope:{{order.hope}} order name: {{order.name}} user:{{order.user}} shirtcolor:{{order.shirtColor}}
         image:{{order.image}}
     </div>-->
@@ -45,80 +45,80 @@
                           </span>
                    </h2>
                 </div>
-            </div>
-            <!--shows incoming order info -->
-            <!--Incoming Order : {{order}}-->
 
-            <!--shows incoming item info-->
-            <!--<ul>
+                <!--shows incoming order info -->
+                <!--Incoming Order : {{order}}-->
+
+                <!--shows incoming item info-->
+                <!--<ul>
                 <li ng-repeat="item in order.items">item.details: {{item.details}} item.details.name: {{item.details.name}} item.details.shirtUrl{{item.details.shirtUrl}}</li>
             </ul>-->
-            <!--end item info-->
+                <!--end item info-->
 
 
-            <ul class="list-group">
-                <li class="list-group-item row" ng-repeat="item in order.items" ng-hide="archive">
-                    <div class="media col-sm-12 col-md-6">
-                        <div class="media-left">
-                            <div class="media-object">
-                                <div class="shirt-div" style="display:inline-block">
-                                    <img class="block" ng-src="{{item.details.shirtUrl}}" alt="shirt preview here" height="300" />
-                                    <div class="image-div" style="top: {{item.logo.position.top}}px; left: {{item.logo.position.left}}px; height: {{item.logo.size.height}}px; width: {{item.logo.size.width}}px;">
-                                        <img class="image" ng-src="{{item.details.imageUrl}}">
-                                        <!--{{order.logo.position}}
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in order.items" ng-hide="archive">
+                        <div class="media col-sm-12 col-md-6">
+                            <div class="media-left">
+                                <div class="media-object">
+                                    <div class="shirt-div" style="display:inline-block">
+                                        <img class="block" ng-src="{{item.details.shirtUrl}}" alt="shirt preview here" height="300" />
+                                        <div class="image-div" style="top: {{item.logo.position.top}}px; left: {{item.logo.position.left}}px; height: {{item.logo.size.height}}px; width: {{item.logo.size.width}}px;">
+                                            <img class="image" ng-src="{{item.details.imageUrl}}">
+                                            <!--{{order.logo.position}}
                         <br> {{order.logo.size}}-->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="media-body col-sm-12 col-md-6">
-                        <div class="media-content">
-                            <div ng-show="details">
-                                <table class="table table-striped table-hover">
-                                    <tbody>
-                                        <tr>
-                                            <td>Customer Name: </td>
-                                            <td>{{item.details.user}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Design Name: </td>
-                                            <td>{{item.details.name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Order Date: </td>
-                                            <td>{{item.details.date | date:'MM/dd/yyyy'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shirt Color: </td>
-                                            <td>{{item.details.shirtColor}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shirt URL: </td>
-                                            <td>{{item.details.shirtUrl}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Individual Price: </td>
-                                            <td>{{item.details.price | currency}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quantity: </td>
-                                            <td>{{item.quantity}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Order Sub-Total: </td>
-                                            <td>{{item.total | currency}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="media-body col-sm-12 col-md-6">
+                            <div class="media-content">
+                                <div ng-show="details">
+                                    <table class="table table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>Customer Name: </td>
+                                                <td>{{item.details.user}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Design Name: </td>
+                                                <td>{{item.details.name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Order Date: </td>
+                                                <td>{{item.details.date | date:'MM/dd/yyyy'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shirt Color: </td>
+                                                <td>{{item.details.shirtColor}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shirt URL: </td>
+                                                <td>{{item.details.shirtUrl}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Individual Price: </td>
+                                                <td>{{item.details.price | currency}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quantity: </td>
+                                                <td>{{item.quantity}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Order Sub-Total: </td>
+                                                <td>{{item.total | currency}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr/>
-                </li>
-            </ul>
-            <h2 style="text-align: right"><span>Grand Total: {{order.grandTotal | currency}}</span></h2>
-            <h6 style="background-color: grey" class="text-align: center"><i>end of order</i></h6>
+                        <hr/>
+                    </li>
+                </ul>
+                <h2 style="text-align: right"><span>Grand Total: {{order.grandTotal | currency}}</span></h2>
+                <h6 style="background-color: grey" class="text-align: center"><i>end of order</i></h6>
         </li>
     </ul>
 
@@ -216,4 +216,4 @@
         </li>-->
     <!-- </ul>-->
 
-</div>
+    </div>
