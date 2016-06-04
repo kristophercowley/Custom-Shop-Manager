@@ -1,5 +1,6 @@
 app.config(function ($stateProvider, $urlRouterProvider) {
 
+    // Use window.location to find out if im running on localhost and assign paths respectively
     $urlRouterProvider.otherwise("/home");
     $stateProvider
         .state('home', {
