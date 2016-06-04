@@ -54,11 +54,11 @@
             </ul>-->
             <!--end item info-->
 
-            
-                <ul class="list-group">  
-                    <li class="list-group-item" ng-repeat="item in order.items" ng-hide="archive">
-                        <div class="media row">
-                            <div class="col-sm-12 col-md-6">
+
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in order.items" ng-hide="archive">
+                    <div class="media row">
+                        <div class="col-sm-12 col-md-6">
                             <div class="media-left">
                                 <div class="media-object">
                                     <div class="shirt-div" style="display:inline-block">
@@ -71,55 +71,55 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="media-body col-sm-12 col-md-6">
-                                <div class="media-content">
-                                    <div ng-show="details">
-                                        <table class="table table-striped table-hover">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Customer Name: </td>
-                                                    <td>{{item.details.user}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Design Name: </td>
-                                                    <td>{{item.details.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Order Date: </td>
-                                                    <td>{{item.details.date | date:'MM/dd/yyyy'}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shirt Color: </td>
-                                                    <td>{{item.details.shirtColor}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shirt URL: </td>
-                                                    <td>{{item.details.shirtUrl}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Individual Price: </td>
-                                                    <td>{{item.details.price | currency}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Quantity: </td>
-                                                    <td>{{item.quantity}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Order Sub-Total: </td>
-                                                    <td>{{item.total | currency}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>                
+                        </div>
+                        <div class="media-body col-sm-12 col-md-6">
+                            <div class="media-content">
+                                <div ng-show="details">
+                                    <table class="table table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>Customer Name: </td>
+                                                <td>{{item.details.user}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Design Name: </td>
+                                                <td>{{item.details.name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Order Date: </td>
+                                                <td>{{item.details.date | date:'MM/dd/yyyy'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shirt Color: </td>
+                                                <td>{{item.details.shirtColor}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shirt URL: </td>
+                                                <td>{{item.details.shirtUrl}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Individual Price: </td>
+                                                <td>{{item.details.price | currency}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quantity: </td>
+                                                <td>{{item.quantity}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Order Sub-Total: </td>
+                                                <td>{{item.total | currency}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
-                    </li>
-                </ul>
-                <h2 style="text-align: right"><span>Grand Total: {{order.grandTotal | currency}}</span></h2>
-                <h6 style="background-color: grey" class="text-align: center"><i>end of order</i></h6>
+                    </div>
+                    <hr/>
+                </li>
+            </ul>
+            <h2 style="text-align: right"><span>Grand Total: {{order.grandTotal | currency}}</span></h2>
+            <h6 style="background-color: grey" class="text-align: center"><i>end of order</i></h6>
         </li>
     </ul>
 
@@ -217,4 +217,4 @@
         </li>-->
     <!-- </ul>-->
 
-    </div>
+</div>
