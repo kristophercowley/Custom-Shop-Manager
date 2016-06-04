@@ -1,6 +1,6 @@
 /* global Firebase */
 
-app.controller('MainController', function ($scope, ShirtService, ChatService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
+app.controller('MainController', function ($scope, ShirtService, ChartService, DBREF, $firebaseObject, $firebaseArray, $firebaseAuth, $timeout) {
     ChartService.chartData.$loaded(function(res){
     ChartService.updateChartData()     
     })
